@@ -110,8 +110,11 @@ An open-source QR code platform covering the whole lifecycle.
 
 </td>
 </tr>
+</table>
+
+<table align="center">
 <tr>
-<td colspan="2" valign="top">
+<td width="380" valign="top">
 
 <div align="center">
 <a href="https://github.com/kspkr/wirekit">
@@ -119,27 +122,26 @@ An open-source QR code platform covering the whole lifecycle.
 <h3>WireKit</h3>
 </a>
 
-**Go primitives for inspecting, parsing, and working with network data.**
+**Parse, inspect and rewrite what crosses the wire. Every parser fuzzed.**
 
-![Go](https://img.shields.io/badge/Go-1.25%2B-00add8?style=flat-square&logo=go&logoColor=white)
-![Std lib](https://img.shields.io/badge/dependencies-standard_library-2b3137?style=flat-square)
+<a href="https://github.com/kspkr/wirekit"><img src="https://raw.githubusercontent.com/kspkr/wirekit/main/docs/images/screenshot.png" width="100%" alt="WireKit inspecting a captured response" /></a>
+
+![Go](https://img.shields.io/badge/Go-library-00add8?style=flat-square&logo=go&logoColor=white)
+![Deps](https://img.shields.io/badge/deps-std_lib-2b3137?style=flat-square)
 ![Fuzzed](https://img.shields.io/badge/parsers-fuzzed-8b5cf6?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-e5a445?style=flat-square)
+![License](https://img.shields.io/badge/MIT-licensed-e5a445?style=flat-square)
 
 </div>
 
-The protocol layer under TrafficKit, released as a library for anyone writing proxies, inspectors or protocol tests.
+The protocol layer under TrafficKit, as a Go library.
 
-- HTTP messages with headers in wire order, cookies with RFC 6265 validation, bounded body capture
-- WebSocket frames, message reassembly and close codes
-- TLS connection and certificate summaries, plus a ClientHello parser with SNI, ALPN and JA3
-- gzip, brotli and zstd decoding with limits, so a kilobyte cannot become a gigabyte
-- Every parser fuzzed, every size bounded, nothing panics on hostile input
+- HTTP messages with headers in wire order and RFC 6265 cookie checks
+- WebSocket frames, reassembly and close codes
+- TLS certificates and a ClientHello parser with SNI and JA3
+- gzip, brotli and zstd decoding with bomb limits
+- Nothing panics on hostile input, every size is bounded
 
-```go
-req, _ := httpkit.ParseRequest(raw)
-fmt.Println(req.Headers.Get("content-type"), req.Cookies(), req.Body.Size)
-```
+[Read the docs →](https://pkg.go.dev/github.com/kspkr/wirekit)
 
 </td>
 </tr>

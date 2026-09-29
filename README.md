@@ -16,6 +16,8 @@
 [![TrafficKit](https://img.shields.io/badge/TrafficKit-HTTP%20debugging%20proxy-e5a445?style=for-the-badge&logo=go&logoColor=white&labelColor=1f2530)](https://github.com/kspkr/TrafficKit)
 &nbsp;
 [![QRForge](https://img.shields.io/badge/QRForge-QR%20code%20platform-e5a445?style=for-the-badge&logo=react&logoColor=white&labelColor=1f2530)](https://github.com/kspkr/QrForge)
+&nbsp;
+[![WireKit](https://img.shields.io/badge/WireKit-Go%20network%20primitives-e5a445?style=for-the-badge&logo=go&logoColor=white&labelColor=1f2530)](https://github.com/kspkr/wirekit)
 
 <br />
 
@@ -34,7 +36,7 @@ Cache-Control: no-cloud
 {
   "handle":     "kspkr",
   "builds":     "local-first developer tools",
-  "shipping":   ["TrafficKit", "QRForge"],
+  "shipping":   ["TrafficKit", "QRForge", "WireKit"],
   "stack":      ["Go", "TypeScript / React", "Rust / Tauri", "Docker"],
   "principles": ["your data never leaves your machine",
                  "free means free, not freemium",
@@ -105,6 +107,39 @@ An open-source QR code platform covering the whole lifecycle.
 - Ships as `@qrforge/core`, `@qrforge/react`, a CLI and a REST SDK
 
 [Try the live Studio →](https://kspkr.github.io/QrForge/)
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top">
+
+<div align="center">
+<a href="https://github.com/kspkr/wirekit">
+<img src="https://raw.githubusercontent.com/kspkr/wirekit/main/docs/images/logo.svg" width="56" alt="WireKit" /><br />
+<h3>WireKit</h3>
+</a>
+
+**Go primitives for inspecting, parsing, and working with network data.**
+
+![Go](https://img.shields.io/badge/Go-1.25%2B-00add8?style=flat-square&logo=go&logoColor=white)
+![Std lib](https://img.shields.io/badge/dependencies-standard_library-2b3137?style=flat-square)
+![Fuzzed](https://img.shields.io/badge/parsers-fuzzed-8b5cf6?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-e5a445?style=flat-square)
+
+</div>
+
+The protocol layer under TrafficKit, released as a library for anyone writing proxies, inspectors or protocol tests.
+
+- HTTP messages with headers in wire order, cookies with RFC 6265 validation, bounded body capture
+- WebSocket frames, message reassembly and close codes
+- TLS connection and certificate summaries, plus a ClientHello parser with SNI, ALPN and JA3
+- gzip, brotli and zstd decoding with limits, so a kilobyte cannot become a gigabyte
+- Every parser fuzzed, every size bounded, nothing panics on hostile input
+
+```go
+req, _ := httpkit.ParseRequest(raw)
+fmt.Println(req.Headers.Get("content-type"), req.Cookies(), req.Body.Size)
+```
 
 </td>
 </tr>
@@ -190,10 +225,11 @@ Found a bug, want a feature, or built something on top of one of these? Open an 
 
 [![Issues](https://img.shields.io/badge/Open_an_issue-TrafficKit-1f2530?style=for-the-badge&logo=github)](https://github.com/kspkr/TrafficKit/issues/new)
 [![Issues](https://img.shields.io/badge/Open_an_issue-QRForge-1f2530?style=for-the-badge&logo=github)](https://github.com/kspkr/QrForge/issues/new)
+[![Issues](https://img.shields.io/badge/Open_an_issue-WireKit-1f2530?style=for-the-badge&logo=github)](https://github.com/kspkr/wirekit/issues/new)
 
 <br />
 
-<sub>⭐ A star on either repo is the cheapest way to tell me to keep going.</sub>
+<sub>⭐ A star on any of these repos is the cheapest way to tell me to keep going.</sub>
 
 </div>
 
